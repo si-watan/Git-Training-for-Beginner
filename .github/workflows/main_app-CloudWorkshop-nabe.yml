@@ -9,6 +9,9 @@ on:
       - main
   workflow_dispatch:
 
+env:
+  APP_PATH: './src/Web'
+  
 jobs:
   build:
     runs-on: windows-latest
@@ -22,10 +25,10 @@ jobs:
         dotnet-version: '3.1.301'
 
     - name: Build with dotnet
-      run: dotnet build --configuration Release
+      run: dotnet build ${{ env.APP_PATH }} --configuration Release
 
     - name: dotnet publish
-      run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+      run: dotnet publish ${{ env.APP_PATH }} -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v2
