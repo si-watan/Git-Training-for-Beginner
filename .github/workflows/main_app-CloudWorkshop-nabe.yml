@@ -56,4 +56,4 @@ jobs:
         app-name: 'app-CloudWorkshop-nabe'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_37a56353dd7b4a189601b0d494bf2b71 }}
-        package: .
+        package: .net-app
